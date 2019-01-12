@@ -5,10 +5,10 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book")
+@Table(name = "user")
 public class User implements Serializable {
 
-	 @Id
+	  @Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  Long id;
 	 
