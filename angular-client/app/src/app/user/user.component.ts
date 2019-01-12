@@ -41,11 +41,11 @@ export class UserComponent implements OnInit {
       });
   }
 
-  deleteUser(user: User): void {
-    this.userService.deleteUser(user)
-      .subscribe( data => {
-        this.users = this.users.filter(u => u !== user);
-      });
-  }
+  // deleteUser(user: User): void {
+  //   this.userService.deleteUser(user)
+  //     .subscribe( data => {
+  //       this.users = this.users.filter(u => u !== user);
+  //     });
+  // }
 
 }
