@@ -1,12 +1,13 @@
 package com.ofa.userContainer;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
 	@Autowired
     private UserRepository repository;
@@ -17,26 +18,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User delete(int id) {
-        User user = findById(id);
+    public Optional<User> delete(Long id) {
+        Optional<User> user = findById(id);
         if(user != null){
-            repository.delete(user);
+            repository.deleteById(id);
         }
         return user;
     }
 
     @Override
     public List findAll() {
-        return repository.findAll();
+        return (List) repository.findAll();
     }
 
     @Override
-    public User findById(int id) {
-        return repository.findOne(id);
-    }
-
-    @Override
-    public User update(User user) {
-        return null;
+    public Optional<User> findById(Long id) {
+        return repository.findById(id);
     }
 }

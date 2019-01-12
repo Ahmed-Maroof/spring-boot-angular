@@ -1,12 +1,15 @@
 package com.ofa.userContainer;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
-	 public User create(User user);
-	 public User delete(int id) ;
-	 public List findAll();
-	 public User findById(int id);
-	 public User update(User user);
+	public User create(User user);
+
+	public Optional<User> delete(Long id);
+
+	public List findAll();
+
+	public Optional<User> findById(Long id);
 }

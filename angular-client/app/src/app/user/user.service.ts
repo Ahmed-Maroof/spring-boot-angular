@@ -13,15 +13,16 @@ export class UserService {
 
   constructor(private http:HttpClient) {}
 
-  private userUrl = 'http://localhost:8080/api';
+  private userUrl = 'http://localhost:8080/portal/api';
 	// private userUrl = '/api';
 
   public getUsers() {
-    return this.http.get<User[]>(this.userUrl);
+    return this.http.get<User[]>(this.userUrl+"/all");
   }
 
   public deleteUser(user) {
-    return this.http.delete(this.userUrl + "/"+ user.id);
+    console.log(user)
+    return this.http.delete(this.userUrl + "/delete/"+ user.id);
   }
 
   public createUser(user) {

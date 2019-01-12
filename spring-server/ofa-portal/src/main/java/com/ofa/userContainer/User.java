@@ -10,6 +10,7 @@ public class User implements Serializable {
 
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	  @Column(name="id")
 	  Long id;
 	 
 	 @Column(name = "email")
@@ -20,6 +21,8 @@ public class User implements Serializable {
 
 	 @Column(name = "last_name")
 	  String lastName;
+
+	public Long getId() {return id;}
 
 	public String getEmail() {
 		return email;

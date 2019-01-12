@@ -2,6 +2,7 @@ package com.ofa.userContainer;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,21 +31,21 @@ public class UserController {
     }
 
     @GetMapping(path = {"/{id}"})
-    public User findOne(@PathVariable("id") int id){
+    public Optional<User> findOne(@PathVariable("id") Long id){
         return userService.findById(id);
     }
 
-    @PutMapping
-    public User update(@RequestBody User user){
-        return userService.update(user);
-    }
+//    @PutMapping
+//    public User update(@RequestBody User user){
+//        return userService.update(user);
+//    }
 
-    @DeleteMapping(path ={"/{id}"})
-    public User delete(@PathVariable("id") int id) {
+    @DeleteMapping(path = {"/delete/{id}"})
+    public Optional<User> delete(@PathVariable("id") Long id) {
         return userService.delete(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List findAll(){
         return userService.findAll();
     }
